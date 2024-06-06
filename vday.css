@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 16px;
+    height: 100vh;
+    background: #b214d1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.happy_birthday_card {
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+}
+
+.front_img {
+    width: 450px;
+    margin-right: -50px;
+    margin-left: -50px; 
+    margin-top: 100px;
+    position: relative; 
+    transition: opacity 0.5s;
+}
+
+.inside_img {
+    width: 350px;
+    margin-right: -50px;
+    margin-left: -50px; 
+    margin-top: 100px;
+    position: relative; 
+}
+
+.front_text, .inside_text {
+    color: #000000;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 24px;
+    transition: opacity 0.5s;
+}
+
+.front_card {
+    position: relative;
+    overflow: hidden;
+    transform-origin: left;
+    margin: 40px auto;
+    padding: 16px;
+    background-color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 24px 40px -8px #540264;
+    width: 450px;
+    height: 800px;
+    transition: transform 4s;
+}
+
+.inside_card {
+    position: absolute;
+    overflow: hidden;
+    transform-origin: left;
+    margin: 40px auto;
+    padding: 16px;
+    background-color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 24px 40px -8px #46045a;
+    width: 450px;
+    height: 800px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+
+.happy_birthday_card audio {
+    display: none;
+}
+
+.inside_card audio {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 40px;
+}
+
+/* Keyframe animation for slow letter opening */
+@keyframes slowOpen {
+    0% {
+        transform: rotateY(0deg);
+    }
+    90% {
+        transform: rotateY(-160deg);
+    }
+    100% {
+        transform: rotateY(-160deg);
+    }
+}
+
+.happy_birthday_card:hover .front_card {
+    animation: slowOpen 4s forwards;
+}
+
+.happy_birthday_card:hover .front_img,
+.happy_birthday_card:hover .front_text {
+    animation: fadeOut 1s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
